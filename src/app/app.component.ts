@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
 local:any;
   constructor(public authservice:AuthService)
   {
-    
+
+    this.username=this.authservice.getToken();
+    console.log(this.username);
   }
 
   logout()

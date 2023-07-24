@@ -15,12 +15,16 @@ currentuser:any;
   getUserToken(empDetails:User)
   {
     {{debugger}}
-    this.userlist=this.userservice.getAllUsers();
-    this.currentuser=this.userlist.filter(x=>x.username==empDetails.username && x.password==empDetails.password);
-    console.log(this.currentuser);
+    console.log(empDetails);
+     this.userlist=this.userservice.getAllUsers();
+     this.currentuser=this.userlist.filter(x=>x.username==empDetails.username && x.password==empDetails.password);
+     console.log(this.currentuser);
     // if(empDetails.username=="admin" && empDetails.password=="abcd")
     if(this.currentuser.length>0)
-       this.token="validuser";
+    {
+    //console.log(empDetails.username);
+       this.token=empDetails.username;
+    }
     else
     this.token="";
     //return this.token;

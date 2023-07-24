@@ -35,9 +35,12 @@ constructor(private authservice:AuthService,private route:Router) { }
       
       let currentuser={"username":this.userform.value.username,"password":this.userform.value.password,"role":this.userform.value.role}
       try{
+        
       this.authservice.getUserToken(currentuser);
+      {{debugger}}
       if(this.authservice.token!="")
       {
+        console.log(this.authservice.token);
       localStorage.setItem("token",this.authservice.token);
       this.route.navigateByUrl('/dashboard');
       }
